@@ -12,22 +12,28 @@ type ReqQuery = {
 
 const router = express.Router()
 
-export const searching: RequestHandler<Params, ResBody, ReqBody, ReqQuery> = (req, res) => {
+export const searching: RequestHandler<Params, ResBody, ReqBody, ReqQuery> = (req, res, next) => {
   const q = req.query.q;
 
   searchItems(q)
-  .then((items) => {
-    res.send(items)
+  .then((result) => {
+    res.send(result)
+  })
+  .catch((error) => {
+    return next(error)
   });
 }
 router.get('/', searching);
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
   const code = req.params.id;
 
   getItem(code)
-  .then((item) => {
-    res.send(item)
+  .then((result) => {
+    res.send(result)
+  })  
+  .catch((error) => {
+    return next(error)
   });
 
 });

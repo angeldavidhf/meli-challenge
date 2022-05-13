@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL, AUTHOR_NAME, AUTHOR_LASTNAME } from '../constants';
+import { HttpError } from '../utils/HttpError';
 
 const AUTHOR_OBJ = {
   author: {
@@ -20,15 +21,15 @@ export const searchItems = async(q: string) => {
     return result;
   })
   .catch(function (error) {
-    return error;
+    return new HttpError(404, error);
   });
 }
 
-export const getItem = async (code: string) => {
+export const getItem = async (id: string) => {
 
   return await axios.all([
-    axios.get(`https://${API_URL}items/${code}`),
-    axios.get(`https://${API_URL}items/${code}/description`)    
+    axios.get(`https://${API_URL}items/${id}`),
+    axios.get(`https://${API_URL}items/${id}/description`)    
   ])
   .then(axios.spread((item, description) => {
     const result = {
@@ -44,6 +45,6 @@ export const getItem = async (code: string) => {
     return result;
   }))
   .catch((error) => {
-    return error;
+    return new HttpError(404, error);
   });
 }
