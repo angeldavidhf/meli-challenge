@@ -1,0 +1,31 @@
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  & .spinner {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    &:after {
+      content: " ";
+      display: block;
+      width: 70px;
+      height: 70px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 5px solid $yellow;
+      border-color: $yellow transparent $yellow transparent;
+      animation: spinner 1.2s linear infinite;
+    }
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

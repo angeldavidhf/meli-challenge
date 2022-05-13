@@ -1,0 +1,28 @@
+.price-tag {
+  display: inline-block;
+  vertical-align: middle;
+  
+  &-symbol-sm,
+  &-fraction-sm {
+    font-size: 1.5rem;
+  }
+  &-cents-sm {
+    font-size: 0.75rem;
+    line-height: 2rem;
+  }
+  &-symbol-lg,
+  &-fraction-lg {
+    font-size: 2.25rem;
+  }
+  &-cents-lg {
+    display:inline-block;
+    vertical-align:middle;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
+}
+.free-shiping {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+}

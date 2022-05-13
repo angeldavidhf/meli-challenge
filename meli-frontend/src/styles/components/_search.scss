@@ -1,0 +1,36 @@
+.search-container {
+  background-color: $white;
+}
+
+.search-item {
+  padding: 1rem;
+  border-bottom: 1px solid $grey-50;
+  display: flex;
+  flex-wrap: wrap;
+  & .search-item__img {
+    flex: 1 0 0%;
+    & img {
+      border-radius: 4px;
+      width: 180px;
+    }
+  }
+  & .search-item__detail {
+    flex: 6 0 0%;
+    padding-left: 1rem;
+    & .search-item__detail-link {
+      text-decoration: none;
+      color: $black;
+      & .search-item__detail-title {
+        margin-top: 1rem;
+        font-size: 1.125rem;
+        font-weight: lighter;
+      }
+    }
+  }
+  & .search-item__location {
+    flex: 1 0 0%;
+    color: $grey-100;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,58 @@
+/* Header */
+
+.main-navigation {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // los hijos permanecen en la misma linea que el padre
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: $yellow;
+  & .container {
+    display: flex;
+  }
+  & .main-navigation__brand {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  & .main-navigation__form {
+    width: 100%;
+    & .main-navigation__input-group {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+      & input[type="text"] {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        padding: 0.375rem 0.75rem;
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $black;
+        background-color: $white;
+        background-clip: padding-box;
+        border: 1px solid $white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.25rem;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      & button {
+        border: none;
+        background-color: $grey-50;
+        padding: 0px 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+  
