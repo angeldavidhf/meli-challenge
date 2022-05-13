@@ -8,22 +8,22 @@ export const useAxios = (axiosParams: AxiosRequestConfig) => {
   const [error, setError] = useState<AxiosError>();
   const [loading, setLoading] = useState(true);
 
-  const fetchData = useCallback(async (params: AxiosRequestConfig) => {
-    try {
-      const result = await axios.request(params);
-      setResponse(result);
-    } 
-    catch( err ) {
-      setError(err);
-    } 
-    finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
+    const fetchData = async (params: AxiosRequestConfig) => {
+      try {
+        const result = await axios.request(params);
+        setResponse(result);
+      } 
+      catch( err ) {
+        setError(err);
+      } 
+      finally {
+        setLoading(false);
+      }
+    }
+
     fetchData(axiosParams);
-  },[]);
+	}, [axiosParams.url]); 
 
   return { response, error, loading };
 }

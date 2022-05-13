@@ -3,6 +3,12 @@ import ic_Shipping from "@images/ic_Shipping.png";
 
 export default function Price({ price, fraction, cents, size, shipping }: any) {
 
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
+
   return (
     <>
       <span
@@ -11,10 +17,9 @@ export default function Price({ price, fraction, cents, size, shipping }: any) {
           className={"price-tag-symbol" + size}
           itemProp="priceCurrency"
         >
-          $
         </span>
         <span className={"price-tag-fraction" + size}>
-          {fraction}
+          {formatter.format(fraction)}
         </span>
         <span className={"price-tag-cents" + size}>{cents}</span>
       </span>

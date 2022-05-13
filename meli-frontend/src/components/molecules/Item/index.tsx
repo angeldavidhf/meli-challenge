@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Price from "@atoms/Price";
 
-export default function Item({ key, properties }: any) {
+export default function Item({ properties }: any) {
   return (
     <div className="search-item">
       <div className="search-item__img">
