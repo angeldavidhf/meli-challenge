@@ -3,6 +3,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:5000/api/';
 
+// THIS HOOK WAS MADE FOR QUERIES DEPENDING ON THE PARAMETERS, USE AN AXIOS OWN INTERFACE AND RETURN response, loading AND error
 export const useAxios = (axiosParams: AxiosRequestConfig) => {
   const [response, setResponse] = useState<AxiosResponse>();
   const [error, setError] = useState<AxiosError>();

@@ -3,6 +3,7 @@ import ic_Shipping from "@images/ic_Shipping.png";
 
 export default function Price({ price, fraction, cents, size, shipping }: any) {
 
+  // FORMAT NUMBER ON CURRENCY WITH DECIMALS OR UNITS
   var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

@@ -4,7 +4,7 @@ import Header from '@organisms/Header';
 
 import Home from '@pages/Home';
 import SearchResult from '@pages/SearchResult';
-import ItemDetail from '@pages/ItemDetail';
+import ProductResult from '@pages/ProductResult';
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="items" element={<SearchResult />} />
-          <Route path="items/:id" element={<ItemDetail />} />
+          <Route path="items/:id" element={<ProductResult />} />
         </Routes>
       </main>
     </>

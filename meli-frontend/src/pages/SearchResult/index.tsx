@@ -5,12 +5,14 @@ import { useAxios } from '@hooks/useAxios';
 
 import Breadcrumb from '@molecules/Breadcrumb';
 import Loading from '@organisms/Loading';
-import ListItems from '@organisms/ListItems';
+import ProductList from '@organisms/ProductList';
 
 export default function SearchResult() {
   const [ q ] = useSearchParams();
-  const [ itemsResult, setItemsResult ] = useState();
+  const [ products, setProducts ] = useState();
+  const [ categories, setCategories ] = useState();
 
+  // HOOK TO OBTAIN THE LIST OF PRODUCTS ACCORDING TO OBTAINED IN THE URL QUERY
   const { response, loading, error } = useAxios({
     method: "GET",
     url: `/items?q=${q.get("search")}`,
@@ -19,8 +21,10 @@ export default function SearchResult() {
     }
   });
 
+  //SET THE STATE EVERY TIME THE RESPONSE OF THE PRODUCTS LIST CHANGES
   useEffect(() => {
-    setItemsResult(response?.data?.items || []);
+    setProducts(response?.data?.items || []);
+    setCategories(response?.data?.filters || []);
   }, [response, loading]);
 
   return (
@@ -30,11 +34,11 @@ export default function SearchResult() {
           <Loading />
         </div>
       )}
-      {!loading && itemsResult && (
+      {!loading && products && (
         <>
-          <Breadcrumb />
+          <Breadcrumb categories={categories} />
           <div className="search-container">
-            <ListItems items={itemsResult}/>
+            <ProductList products={products}/>
           </div>
         </>
       )}      

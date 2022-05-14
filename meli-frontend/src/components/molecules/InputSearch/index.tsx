@@ -11,6 +11,7 @@ export default function InputSearch() {
   const [ searchInput, setSearchInput ] = useState('');
   const navigate = useNavigate();
 
+  // WHEN FORM SUBMIT URL THE INPUT SERACH IS CAPTURED IN URL AND NAVIGATE TO THIS ROUTE
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (searchInput != '') navigate(`/items?search=${decodeURI(searchInput)}`);

@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
-
 interface IImage {
   width: number;
-  height: number;
+  height: number | "auto";
   alt: string;
-  image: string;
+  image: any;
 }
 
 export default function Image({ width, height, alt, image }: IImage) {
