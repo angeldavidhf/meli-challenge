@@ -13,7 +13,10 @@ export const searchItems = async(q: string) => {
   return await axios.get(`https://${API_URL}sites/MLA/search?q=${q}`)
   .then((res) => {
     const result = {
-      ...AUTHOR_OBJ, 
+      ...AUTHOR_OBJ,
+      filters: [
+        ...res.data.filters
+      ],
       items: [
         ...res.data.results
       ]
